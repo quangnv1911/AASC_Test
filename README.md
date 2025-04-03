@@ -25,6 +25,7 @@ cd bitrix24_server
 npm install
 
 3. Create a `.env` file in the root directory and add your Bitrix24 API credentials:
+```
 
 BITRIX24_OAUTH_URL = https://oauth.bitrix.info/oauth/token
 BITRIX24_CLIENT_ID = Bitrix local app client ID
@@ -32,7 +33,7 @@ BITRIX24_CLIENT_SECRET = Bitrix local app client secret key
 BITRIX24_REST_URL =  https://vinhquang.bitrix24.vn/rest/
 CLIENT_URL = http://localhost:5173
 PORT = 5000
-
+```
 4. Start the server:
 
 npm run start
@@ -49,8 +50,9 @@ cd bitrix24_client
 npm install
 
 3. Create a `.env` file in the root directory and add your Bitrix24 API credentials:
-
+```
 VITE_API_URL= "Your backend server URL"
+```
 
 3. Start the development server:
 
