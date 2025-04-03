@@ -207,7 +207,7 @@ export const updateContact = async (req, res) => {
         } else {
             handleDataUpdateContact(bankInfo, address, requisiteId);
         }
-        await api('crm.contact.update', { body: { id: ID, fields: { ...data } } });
+        await api('crm.contact.update', { body: { id: id, fields: { ...data } } });
         res.status(200).json({ msg: 'update success' });
     } catch (error) {
         console.error(error)
