@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "description": "Backend service for Bitrix24 API integration",
   "main": "server.js",
+  "type": "module",
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js"
@@ -20,7 +21,11 @@
     "bitrix24_server": "file:",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "fs-extra": "^11.2.0",
+    "lodash": "^4.17.21",
+    "uuid": "^10.0.0",
+    "zod": "^3.24.2"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"

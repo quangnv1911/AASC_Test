@@ -1,5 +1,5 @@
 {
-  "name": "bitrix24_client",
+  "name": "bitrix24_vite_client",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -11,10 +11,12 @@
   },
   "dependencies": {
     "axios": "^1.8.4",
-    "bitrix24_client": "file:",
+    "bitrix24_vite_client": "file:",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-router-dom": "^7.4.0"
+    "react-icons": "^5.5.0",
+    "react-router-dom": "^7.4.1",
+    "react-toastify": "^11.0.5"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",

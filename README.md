@@ -26,9 +26,12 @@ npm install
 
 3. Create a `.env` file in the root directory and add your Bitrix24 API credentials:
 
-PORT= "Port to run server"
-CLIENT_ID= "CLient ID WebHook in Bitrix24"
-CLIENT_KEY= "CLient Key WebHook in Bitrix24"
+BITRIX24_OAUTH_URL = https://oauth.bitrix.info/oauth/token
+BITRIX24_CLIENT_ID = Bitrix local app client ID
+BITRIX24_CLIENT_SECRET = Bitrix local app client secret key
+BITRIX24_REST_URL =  https://vinhquang.bitrix24.vn/rest/
+CLIENT_URL = http://localhost:5173
+PORT = 5000
 
 4. Start the server:
 
@@ -47,41 +50,8 @@ npm install
 
 3. Create a `.env` file in the root directory and add your Bitrix24 API credentials:
 
-VITE_BE_URL= "Your backend server URL"
-VITE_BITRIX_URL = "Your bitrix server URL"
+VITE_API_URL= "Your backend server URL"
 
 3. Start the development server:
 
 The frontend will be running at `http://localhost:5173`.
-
-# Basic flow
-### Authentication Process
-1. On the login page, you'll see Install/Reinstall button:
-   - Click the "Install/Reinstall" button
-   - You'll be redirected to the Bitrix24 authorization page
-2. For OAuth authentication:
-   - Authen data will be stored in tokens folders
-   - After successful authorization, you'll be redirected back to the application
-### Contact Management
-Once authenticated, you'll be redirected to the Contacts page where you can:
-
-1. View Contacts :
-
-   - All your Bitrix24 contacts will be displayed in a list
-2. Add New Contact :
-   
-   - Click the "Add New Contact" button at the top of the page
-   - Fill in the contact details form with the required information
-   - Click "Create Contact" to save the new contact
-   - You'll be redirected back to the contacts list
-3. Edit Contact :
-   
-   - Click the "Edit" button next to any contact
-   - Modify the contact information in the form
-   - Click "Save" to update the contact
-   - You'll be redirected back to the contacts list
-4. Delete Contact :
-   
-   - Click the "Delete" button next to any contact
-   - Confirm the deletion in the popup dialog
-   - The contact will be removed from the list
