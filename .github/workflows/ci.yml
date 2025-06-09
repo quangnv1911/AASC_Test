@@ -1,0 +1,164 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+env:
+  NODE_ENV: production
+
+jobs:
+  build-bitrix24_client:
+    runs-on: ubuntu-latest
+    container:
+      image: node22
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup environment for bitrix24_client
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+        if: contains('node22', 'node')
+      
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '11'
+        if: contains('node22', 'maven')
+
+      - name: bitrix24_client - Step 1
+        run: cd frontend && npm install
+
+      - name: bitrix24_client - Step 2
+        run: cd frontend && npm run build
+
+      
+      - name: Archive artifacts for bitrix24_client
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-bitrix24_client-artifacts
+          path: |
+            **/dist/
+            **/build/
+            **/target/
+        if: success()
+
+  build-bitrix24_server:
+    runs-on: ubuntu-latest
+    container:
+      image: node22
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup environment for bitrix24_server
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+        if: contains('node22', 'node')
+      
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '11'
+        if: contains('node22', 'maven')
+
+      - name: bitrix24_server - Step 1
+        run: cd frontend && npm install
+
+      - name: bitrix24_server - Step 2
+        run: cd frontend && npm run build
+
+      
+      - name: Archive artifacts for bitrix24_server
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-bitrix24_server-artifacts
+          path: |
+            **/dist/
+            **/build/
+            **/target/
+        if: success()
+
+  test-bitrix24_client:
+    runs-on: ubuntu-latest
+    container:
+      image: node22
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup environment for bitrix24_client
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+        if: contains('node22', 'node')
+      
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '11'
+        if: contains('node22', 'maven')
+
+      - name: bitrix24_client - Step 1
+        run: cd frontend && npm install
+
+      - name: bitrix24_client - Step 2
+        run: cd frontend && npm run build
+
+      
+      - name: Archive artifacts for bitrix24_client
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-bitrix24_client-artifacts
+          path: |
+            **/dist/
+            **/build/
+            **/target/
+        if: success()
+
+  test-bitrix24_server:
+    runs-on: ubuntu-latest
+    container:
+      image: node22
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup environment for bitrix24_server
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+        if: contains('node22', 'node')
+      
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '11'
+        if: contains('node22', 'maven')
+
+      - name: bitrix24_server - Step 1
+        run: cd frontend && npm install
+
+      - name: bitrix24_server - Step 2
+        run: cd frontend && npm run build
+
+      
+      - name: Archive artifacts for bitrix24_server
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-bitrix24_server-artifacts
+          path: |
+            **/dist/
+            **/build/
+            **/target/
+        if: success()
+
